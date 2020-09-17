@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">My first Application</string>
 
-    <string name="Hi">
-        Hallo, dies ist meine erste App :-)
+    <string name="AppName">
+        TV-APP
     </string>
 
-    <string name="Next">
-        okay
+    <string name="Platz">
+        Sendeplatz
     </string>
 
-    <string name="antwort">
-        Nice
+    <string name="Sender">
+        Sender
     </string>
 </resources>

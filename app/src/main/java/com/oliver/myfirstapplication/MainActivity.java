@@ -19,6 +19,9 @@ public class MainActivity extends Activity {
 
 
     static {
+        tvMap.put(3, "Sat.1");
+        tvMap.put(4, "EuroNews");
+        tvMap.put(7, "Pro 7");
         tvMap.put(22 ,"RTL");
         tvMap.put(78, "ZDF");
         tvMap.put(64, "SR");
@@ -41,17 +44,15 @@ public class MainActivity extends Activity {
         Iterator i = tvMap.entrySet().iterator();
         while(i.hasNext()){
             tableRow = new TableRow(ctx);
-            tableRow.addView(createTextView(i.next().toString()));
+            tableRow.addView(createTextView((Map.Entry) i.next()));
             tableLayout.addView(tableRow);
         }
     }
 
-   private TextView createTextView(String text){
+   private TextView createTextView(Map.Entry text){
        TextView textView = new TextView(getApplicationContext());
-       String rowplace   = text.substring(0,2);
-       String rowChannel = text.substring(3);
-       String row        ="\t\t"+ rowplace
-               + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + rowChannel;
+        String row = "\t" +text.getKey()
+                + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+ text.getValue().toString();
 
        textView.setText(row);
 

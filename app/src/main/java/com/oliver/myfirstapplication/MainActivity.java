@@ -6,19 +6,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.*;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 
 public class MainActivity extends Activity {
-   // private final static String[] tvArray = new String[]{"RTL","ARD", "ZDF"};
-    private final static Map tvMap = new HashMap<Integer, String>();
+    private  static Map tvMap;
     private TableRow tableRow;
-    private TableLayout tableLayout;
+    private LinearLayout tableLayout;
 
 
     static {
+        tvMap = new HashMap<Integer, String>();
         tvMap.put(1, "HSE 24");
         tvMap.put(2, "Welt");
         tvMap.put(3, "Sat.1");
@@ -136,14 +134,12 @@ public class MainActivity extends Activity {
 
    private TextView createTextView(Map.Entry text){
        TextView textView = new TextView(getApplicationContext());
-        String row = "\t" +text.getKey()
-                + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+ text.getValue().toString();
+        String row = "\t\t\t" +text.getKey()
+                + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+
+                text.getValue().toString();
 
        textView.setText(row);
 
        return  textView;
    }
-
     }
-
-

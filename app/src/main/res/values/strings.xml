@@ -1,15 +1,9 @@
 <resources>
     <string name="app_name">My first Application</string>
 
-    <string name="AppName">
-        TV-APP
-    </string>
+    <string name="AppName"> TV-APP </string>
 
-    <string name="Platz">
-        Sendeplatz
-    </string>
+    <string name="Platz"> \n\t\tSendeplatz: </string>
 
-    <string name="Sender">
-        Sender
-    </string>
+    <string name="Sender"> \n\t\t\tSender: </string>
 </resources>

@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainTable"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="100dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainTable"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <TableRow
-        android:id="@+id/row"
-        android:background="#69AADC"
-        android:padding="5dp">
+    <TableLayout
+        android:id="@+id/table_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:text="@string/Platz" />
+        <TableRow
+            android:id="@+id/row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:text="@string/Sender" />
-    </TableRow>
-</TableLayout>
+            <TextView
+                android:id="@+id/col0"
+                android:layout_width="201dp"
+                android:layout_height="57dp"
+                android:shadowColor="#AF6666"
+                android:text="@string/Platz"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/col1"
+                android:layout_width="215dp"
+                android:layout_height="match_parent"
+                android:shadowColor="#AF6666"
+                android:text="@string/Sender"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimary"></TextView>
+
+        </TableRow>
+    </TableLayout>
+</LinearLayout>
+</ScrollView>

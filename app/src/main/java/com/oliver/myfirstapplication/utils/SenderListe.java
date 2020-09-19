@@ -2,6 +2,8 @@ package com.oliver.myfirstapplication.utils;
 
 import com.oliver.myfirstapplication.model.FernsehSender;
 import com.oliver.myfirstapplication.model.IFernsehSender;
+import com.oliver.myfirstapplication.service.ISendeplatzService;
+import com.oliver.myfirstapplication.service.SenderplatzService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,14 +17,17 @@ public class SenderListe {
     private static Map tvMap;
     private List<IFernsehSender> tvList;
     private IFernsehSender ifernsehSender;
+    private ISendeplatzService iSendeplatzService;
 
     public SenderListe(){
-        tvList = new ArrayList<>();
+        //tvList = new ArrayList<>();
+        iSendeplatzService = new SenderplatzService();
     }
 
     public List<IFernsehSender> newInit(){
         ifernsehSender = new FernsehSender(1, "HSE 24");
-        tvList.add(ifernsehSender);
+        iSendeplatzService.addSender(ifernsehSender);
+        tvList = iSendeplatzService.getAllSender();
 
         return tvList;
     }

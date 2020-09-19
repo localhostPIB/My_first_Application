@@ -1,16 +1,20 @@
 package com.oliver.myfirstapplication;
 
 
+import com.oliver.myfirstapplication.model.IFernsehSender;
 import com.oliver.myfirstapplication.utils.SenderListe;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.*;
 
-import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 
-
+/**
+ * MainScreen der Anwendung.
+ *
+ * @version 0.0.1
+ */
 public class MainActivity extends Activity {
     private SenderListe senderListe;
     private TableRow tableRow;
@@ -36,12 +40,13 @@ public class MainActivity extends Activity {
      * Fuellt die Tabelle mit Werten auf.
      */
     private void fillIn(){
-        Map tvMap = senderListe.init();
+        senderListe = new SenderListe();
         Context ctx = getApplicationContext();
-        Iterator i = tvMap.entrySet().iterator();
-        while(i.hasNext()){
+        List<IFernsehSender>  tvList = senderListe.newInit();
+
+        for(IFernsehSender ifernsehSender : tvList){
             tableRow = new TableRow(ctx);
-            tableRow.addView(createTextView((Map.Entry) i.next()));
+            tableRow.addView(createTextView(ifernsehSender));
             tableLayout.addView(tableRow);
         }
     }
@@ -49,14 +54,14 @@ public class MainActivity extends Activity {
     /**
      * Aufbereitung der View.
      *
-     * @param text - Einzelne Werte der Map.
+     * @param ifernsehSender - Einzelne Werte der Map.
      * @return -     einzelne Reihe der Tabelle.
      */
-   private TextView createTextView(Map.Entry text){
+   private TextView createTextView(IFernsehSender ifernsehSender){
        TextView textView = new TextView(getApplicationContext());
-        String row = "\t\t\t" +text.getKey()
+        String row = "\t\t\t" + ifernsehSender.getSendeplatz()
                 + "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"+
-                text.getValue().toString();
+                ifernsehSender.getSenderName().toString();
 
        textView.setText(row);
 

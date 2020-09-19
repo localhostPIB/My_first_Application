@@ -1,13 +1,31 @@
 package com.oliver.myfirstapplication.utils;
 
+import com.oliver.myfirstapplication.model.FernsehSender;
+import com.oliver.myfirstapplication.model.IFernsehSender;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Hilfsklasse mit einer Sender-Map
  */
 public class SenderListe {
-    private  static Map tvMap;
+    private static Map tvMap;
+    private List<IFernsehSender> tvList;
+    private IFernsehSender ifernsehSender;
+
+    public SenderListe(){
+        tvList = new ArrayList<>();
+    }
+
+    public List<IFernsehSender> newInit(){
+        ifernsehSender = new FernsehSender(1, "HSE 24");
+        tvList.add(ifernsehSender);
+
+        return tvList;
+    }
 
     public static Map init(){
         tvMap = new HashMap<Integer, String>();

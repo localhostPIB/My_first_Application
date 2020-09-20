@@ -4,4 +4,6 @@
     <string name="Platz"> \n\t\tSendeplatz: </string>
 
     <string name="Sender"> \n\t\t\tSender: </string>
+
+    <string name="Hinzufuegen">Sender hinzufügen</string>
 </resources>

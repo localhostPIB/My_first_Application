@@ -11,11 +11,12 @@ public interface ISendeplatzService {
      *
      * @param iFernsehSender
      */
-    public void addSender(IFernsehSender iFernsehSender);
+     void addSender(IFernsehSender iFernsehSender);
 
     /**
      * Gibt alle Tv-Sender aus.
-     * @return
+     *
+     * @return - Liste mit allen Sendern.
      */
-    public List<IFernsehSender> getAllSender();
+    List<IFernsehSender> getAllSender();
 }

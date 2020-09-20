@@ -6,11 +6,11 @@ package com.oliver.myfirstapplication.model;
  */
 public interface IFernsehSender {
 
-    public void setSendeplatz(int sendeplatz);
+     void setSendeplatz(int sendeplatz);
 
-    public int getSendeplatz();
+     int getSendeplatz();
 
-    public void setSenderName(String name);
+     void setSenderName(String name);
 
-    public String getSenderName();
+     String getSenderName();
 }

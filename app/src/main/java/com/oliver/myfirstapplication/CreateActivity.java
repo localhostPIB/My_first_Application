@@ -8,6 +8,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.oliver.myfirstapplication.model.IFernsehSender;
 import com.oliver.myfirstapplication.service.SenderplatzService;
 
+
+/**
+ * View fuer das hinzufuegen eines Tv-Senders.
+ */
 public class CreateActivity extends Activity {
    private ConstraintLayout constraintLayoutut;
    private SenderplatzService senderplatzService;

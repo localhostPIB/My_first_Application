@@ -10,8 +10,9 @@ import android.widget.*;
 
 import java.util.List;
 
+
 /**
- * MainScreen der Anwendung.
+ * MainScreen der Anwendung, zeigt alle Sender an.
  *
  * @version 0.0.1
  */
@@ -22,7 +23,7 @@ public class MainActivity extends Activity {
 
 
     /**
-     * wichtig fuer den Start.
+     * Wichtig fuer den Start.
      *
      * @param savedInstanceState
      */

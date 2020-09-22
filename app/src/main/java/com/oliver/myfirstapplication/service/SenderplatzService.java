@@ -1,5 +1,6 @@
 package com.oliver.myfirstapplication.service;
 
+import com.oliver.myfirstapplication.model.FernsehSender;
 import com.oliver.myfirstapplication.model.IFernsehSender;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
  * Bearbeitet die Liste der App.
  */
 public class SenderplatzService implements ISendeplatzService {
+    private IFernsehSender iFernsehSender;
 
     /**
      * Liste mit allen Sender.
@@ -16,6 +18,7 @@ public class SenderplatzService implements ISendeplatzService {
     private List<IFernsehSender> tvListe;
 
     public SenderplatzService(){
+
         tvListe = new ArrayList<>();
     }
 
@@ -25,8 +28,16 @@ public class SenderplatzService implements ISendeplatzService {
      * @param iFernsehSender
      */
     @Override
-    public void addSender(IFernsehSender iFernsehSender) {
+    public void addSenderToList(IFernsehSender iFernsehSender) {
+
         tvListe.add(iFernsehSender);
+    }
+
+    @Override
+    public void addSender(String sendername, int sendernummer) {
+
+        iFernsehSender = new FernsehSender(sendernummer, sendername);
+        addSenderToList(iFernsehSender);
     }
 
     /**

@@ -7,26 +7,26 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/Sendername"
+        android:id="@+id/sendername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="160dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:text="@string/Sender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/sendeplatz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="292dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="numberDecimal"
-        android:text="@string/Platz"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,5 +38,5 @@
         android:layout_marginEnd="136dp"
         android:text="@string/Hinzufuegen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+        app:layout_constraintTop_toBottomOf="@+id/sendeplatz" />
 </androidx.constraintlayout.widget.ConstraintLayout>

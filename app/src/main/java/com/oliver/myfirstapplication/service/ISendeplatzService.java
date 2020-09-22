@@ -11,7 +11,9 @@ public interface ISendeplatzService {
      *
      * @param iFernsehSender
      */
-     void addSender(IFernsehSender iFernsehSender);
+     void addSenderToList(IFernsehSender iFernsehSender);
+
+     void addSender(String sendername, int sendernummer);
 
     /**
      * Gibt alle Tv-Sender aus.

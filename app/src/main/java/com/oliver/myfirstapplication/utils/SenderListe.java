@@ -26,7 +26,7 @@ public class SenderListe {
 
     public List<IFernsehSender> newInit(){
         ifernsehSender = new FernsehSender(1, "HSE 24");
-        iSendeplatzService.addSender(ifernsehSender);
+        iSendeplatzService.addSenderToList(ifernsehSender);
         tvList = iSendeplatzService.getAllSender();
 
         return tvList;

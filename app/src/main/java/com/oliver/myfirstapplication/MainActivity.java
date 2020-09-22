@@ -3,7 +3,6 @@ package com.oliver.myfirstapplication;
 
 import com.oliver.myfirstapplication.model.IFernsehSender;
 import com.oliver.myfirstapplication.service.SenderplatzService;
-import com.oliver.myfirstapplication.utils.SenderListe;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,7 +19,7 @@ import java.util.List;
  * @version 0.0.1
  */
 public class MainActivity extends Activity {
-    private SenderListe senderListe;
+    private SenderplatzService senderplatzService;
     private TableRow tableRow;
     private LinearLayout tableLayout;
 
@@ -34,7 +32,7 @@ public class MainActivity extends Activity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        senderplatzService = SenderplatzService.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tableLayout = findViewById(R.id.mainTable);
@@ -52,13 +50,19 @@ public class MainActivity extends Activity {
         fillIn();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        fillIn();
+    }
+
     /**
      * Fuellt die Tabelle mit Werten auf.
      */
     private void fillIn(){
-        senderListe = new SenderListe();
         Context ctx = getApplicationContext();
-        List<IFernsehSender>  tvList = new SenderplatzService().getAllSender();
+        List<IFernsehSender>  tvList = senderplatzService.getAllSender();
 
         for(IFernsehSender ifernsehSender : tvList){
             tableRow = new TableRow(ctx);

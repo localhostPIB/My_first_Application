@@ -11,6 +11,18 @@ import java.util.List;
  */
 public class SenderplatzService implements ISendeplatzService {
     private IFernsehSender iFernsehSender;
+    public static SenderplatzService senderplatzService = null;
+
+    /**
+     * Singleton
+     * @return - instance SenderplatzService.
+     */
+    public static SenderplatzService getInstance(){
+        if(senderplatzService == null){
+            senderplatzService = new SenderplatzService();
+        }
+            return senderplatzService;
+    }
 
     /**
      * Liste mit allen Sender.
@@ -18,7 +30,6 @@ public class SenderplatzService implements ISendeplatzService {
     private List<IFernsehSender> tvListe;
 
     public SenderplatzService(){
-
         tvListe = new ArrayList<>();
     }
 
@@ -34,7 +45,7 @@ public class SenderplatzService implements ISendeplatzService {
     }
 
     @Override
-    public void addSender(String sendername, int sendernummer) {
+    public  void addSender(String sendername, int sendernummer) {
 
         iFernsehSender = new FernsehSender(sendernummer, sendername);
         addSenderToList(iFernsehSender);
@@ -46,7 +57,7 @@ public class SenderplatzService implements ISendeplatzService {
      * @return
      */
     @Override
-    public List<IFernsehSender> getAllSender() {
+    public  List<IFernsehSender> getAllSender() {
         return  tvListe;
     }
 }

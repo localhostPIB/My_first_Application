@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.oliver.myfirstapplication.model.IFernsehSender;
 import com.oliver.myfirstapplication.service.SenderplatzService;
 
 
@@ -31,7 +29,8 @@ public class CreateActivity extends Activity {
 
 
     private void createEntry(){
-        senderplatzService = new SenderplatzService();
+        senderplatzService = SenderplatzService.getInstance();
+
          EditText  senderName   = (EditText) findViewById(R.id.sendername);
          EditText  senderNummer = (EditText) findViewById(R.id.sendeplatz);
 
@@ -41,6 +40,7 @@ public class CreateActivity extends Activity {
 
             @Override
             public void onClick(View v) {
+
                 senderplatzService.addSender(senderName.getText().toString(),
                         Integer.parseInt(senderNummer.getText().toString()));
 

@@ -34,16 +34,17 @@ public class CreateActivity extends Activity {
          EditText  senderName   = (EditText) findViewById(R.id.sendername);
          EditText  senderNummer = (EditText) findViewById(R.id.sendeplatz);
 
+
         Button button = findViewById(R.id.button2);
 
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
-                senderplatzService.addSender(senderName.getText().toString(),
-                        Integer.parseInt(senderNummer.getText().toString()));
-
+                if(senderName != null && senderNummer  != null ) {
+                    senderplatzService.addSender(senderName.getText().toString(),
+                            Integer.parseInt(senderNummer.getText().toString()));
+                }
                 finish();
             }
         });

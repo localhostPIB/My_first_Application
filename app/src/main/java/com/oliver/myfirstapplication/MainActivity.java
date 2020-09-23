@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
 
 import java.util.List;
@@ -47,21 +48,35 @@ public class MainActivity extends Activity {
             }
         });
 
-        fillIn();
+        //fillIn();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        clearTable();
         fillIn();
+    }
+
+    /**
+     * Loescht alle Eintraege um die Tabelle neu aufzufuellen.
+     */
+    private void clearTable(){
+        int tableRows = tableLayout.getChildCount();
+
+        for (int i = 0; i < tableRows; i++) {
+            View child = tableLayout.getChildAt(i);
+            if (child instanceof TableRow) {
+                ((ViewGroup) child).removeAllViews();
+            }
+        }
     }
 
     /**
      * Fuellt die Tabelle mit Werten auf.
      */
     private void fillIn(){
-        Context ctx = getApplicationContext();
+        Context ctx                  = getApplicationContext();
         List<IFernsehSender>  tvList = senderplatzService.getAllSender();
 
         for(IFernsehSender ifernsehSender : tvList){
